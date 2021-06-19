@@ -3,7 +3,7 @@ from PIL import ImageTk, Image
 from tkinter import messagebox
 from datetime import datetime
 import cv2 as cv
-import numpy as np
+import os
 
 class VideoRecorder:
     def __init__(self, window, source=0):
@@ -29,7 +29,8 @@ class VideoRecorder:
 
             self.save_flag = False
             self.fourcc = cv.VideoWriter_fourcc(*'XVID')
-            self.file_name = str('Media/video_'+self.time_now.strftime('%d-%m-%y_%X')+'.avi')
+            self.file_name = str(os.getcwd()+'/Media/video_'+self.time_now.strftime('%d-%m-%y_%X')+'.avi')
+            self.record = cv.VideoWriter(self.file_name, self.fourcc, self.fps, (1024, 768), True)
 
 
             # defining two frame for the canvas and placed it
@@ -151,13 +152,12 @@ class VideoRecorder:
         return btn, logo
 
     def snapshot(self):
-        snap_file = str('Media/snapshot_'+self.time_now.strftime('%d-%m-%y_%X')+'.png')
+        snap_file = str(os.getcwd()+'/Media/snapshot_'+self.time_now.strftime('%d-%m-%y_%X')+'.png')
         cv.imwrite(snap_file,self.img_arr)
 
     def save(self):
         self.save_flag = not(self.save_flag)
         if self.save_flag:
-            self.record = cv.VideoWriter(self.file_name, self.fourcc, self.fps, (1024, 768), True)
             self.play_pause_btn.config(image=self.pause_img)
         else:
             self.play_pause_btn.config(image=self.play_img)
@@ -174,7 +174,10 @@ if __name__ == '__main__':
     root.iconphoto(False,PhotoImage(file='Icons/camera.png'))
     root.title('Video Recoder')
     root.geometry('1000x600')
-
+    try:
+        os.mkdir(os.getcwd()+'/Media')
+    except OSError:
+        pass
     app = VideoRecorder(root,)
 
     root.mainloop()
