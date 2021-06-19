@@ -1,2 +1,4 @@
 build/Pocket-Camera/PKG-00.pkg filter=lfs diff=lfs merge=lfs -text
 dist/Pocket-Camera filter=lfs diff=lfs merge=lfs -text
+Linux_64/build/Pocket-Camera/PKG-00.pkg filter=lfs diff=lfs merge=lfs -text
+Linux_64/dist/Pocket-Camera filter=lfs diff=lfs merge=lfs -text
