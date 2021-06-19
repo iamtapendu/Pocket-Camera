@@ -163,7 +163,7 @@ class VideoRecorder:
 
     def stop(self):
         self.save_flag = False
-        self.file_name = str('Media/video_'+self.time_now.strftime('%d-%m-%y_%X')+'.avi')
+        self.file_name = str(self.path+'video_'+self.time_now.strftime('%d-%m-%y_%X')+'.avi')
         self.play_pause_btn.config(image=self.play_img)
 
 
@@ -174,7 +174,7 @@ if __name__ == '__main__':
     root.title('Video Recoder')
     root.geometry('1000x600')
     try:
-        os.mkdir(os.getcwd()+'/Media')
+        os.mkdir(os.path.join(os.getcwd()+'Media'))
     except OSError:
         pass
     app = VideoRecorder(root,)
