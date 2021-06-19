@@ -122,6 +122,12 @@ class VideoRecorder:
             # destroy the main window and exit from the program
             self.window.destroy()
 
+    def onEnter(self, e):
+        e.widget['background'] = '#333'
+
+    def onLeave(self, e):
+        e.widget['background'] = '#222'
+
     def createButton(self, window, logo, command, color='#222'):
         # Loading and resize the button logo
         logo = Image.open(logo)
@@ -138,6 +144,10 @@ class VideoRecorder:
                      activebackground='#333',
                      command=command,
                      )
+        # Binding Enter and leave event for Hover effect
+        btn.bind("<Enter>", self.onEnter)
+        btn.bind("<Leave>", self.onLeave)
+
         return btn, logo
 
     def snapshot(self):
