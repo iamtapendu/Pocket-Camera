@@ -10,4 +10,9 @@
 ## Windows :
 #### To run in windows platform you need to clone this repository and open Windows_64 directory and double click Pocket-Camera apllication and it will run smoothly.
 
-
+## If you want to run this manualy then install the followings - 
+* python3
+* tkinter
+* opencv
+* pillow
+* datetime
