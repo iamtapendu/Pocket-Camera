@@ -29,7 +29,8 @@ class VideoRecorder:
 
             self.save_flag = False
             self.fourcc = cv.VideoWriter_fourcc(*'XVID')
-            self.file_name = str(os.getcwd()+'/Media/video_'+self.time_now.strftime('%d-%m-%y_%X')+'.avi')
+            self.path = os.path.join(os.getcwd(),'Media','')
+            self.file_name = str(self.path+'video_'+self.time_now.strftime('%d-%m-%y_%X')+'.avi')
             self.record = cv.VideoWriter(self.file_name, self.fourcc, self.fps, (1024, 768), True)
 
 
@@ -65,8 +66,6 @@ class VideoRecorder:
                                                              'Icons/snapshot.png',
                                                              self.snapshot)
             self.snap_btn.grid(row=0, column=0, padx=10, pady=10, sticky=NSEW)
-            #self.snap_btn.bind('<Enter>', self.onEnter)
-            #self.snap_btn.bind('<Leave>',self.onLeave)
 
             # Creating Play Button
             self.play_pause_btn, self.play_img = self.createButton(self.button_frame,
@@ -152,7 +151,7 @@ class VideoRecorder:
         return btn, logo
 
     def snapshot(self):
-        snap_file = str(os.getcwd()+'/Media/snapshot_'+self.time_now.strftime('%d-%m-%y_%X')+'.png')
+        snap_file = str(self.path+'snapshot_'+self.time_now.strftime('%d-%m-%y_%X')+'.png')
         cv.imwrite(snap_file,self.img_arr)
 
     def save(self):
