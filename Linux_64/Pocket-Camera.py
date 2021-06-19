@@ -174,7 +174,7 @@ if __name__ == '__main__':
     root.title('Pocket Camera')
     root.geometry('1000x600')
     try:
-        os.mkdir(os.path.join(os.getcwd()+'Media'))
+        os.mkdir(os.path.join(os.getcwd(),'Media'))
     except OSError:
         pass
     app = VideoRecorder(root,)
