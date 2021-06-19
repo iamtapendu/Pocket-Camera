@@ -171,7 +171,7 @@ if __name__ == '__main__':
     root = Tk()
     root.config(bg='#222')
     root.iconphoto(False,PhotoImage(file='Icons/camera.png'))
-    root.title('Video Recoder')
+    root.title('Pocket Camera')
     root.geometry('1000x600')
     try:
         os.mkdir(os.path.join(os.getcwd()+'Media'))

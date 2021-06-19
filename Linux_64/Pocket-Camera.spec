@@ -5,7 +5,7 @@ block_cipher = None
 
 
 a = Analysis(['Pocket-Camera.py'],
-             pathex=['/home/tapendu/Documents/PyProgram/Pocket-Camera/v2.0'],
+             pathex=['/home/tapendu/Documents/PROJECTS/Pocket-Camera/v2.0/Linux_64'],
              binaries=[],
              datas=[],
              hiddenimports=['PIL._tkinter_finder'],
